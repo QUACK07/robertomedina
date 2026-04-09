@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Roberto Medina - Mantenimiento General</title>
+    <script>
+      // Redirigir a index.html manteniendo la ruta
+      const pathSegments = location.pathname.split('/');
+      const lang = pathSegments[1];
+      
+      if (lang === 'en' || lang === 'es') {
+        // Mantener el idioma en la URL
+        sessionStorage.redirect = location.href;
+      } else {
+        // Redirigir a español por defecto
+        const newPath = '/es' + location.pathname;
+        sessionStorage.redirect = location.origin + newPath + location.search;
+      }
+      
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>
