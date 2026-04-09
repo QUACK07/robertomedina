@@ -41,8 +41,28 @@ export const texts = {
     partnerships: {
       title: "Alianzas y Experiencia",
       subtitle: "He tenido el honor de trabajar con",
-      une: "UNE (Universidad del Noreste)",
-      more: "Próximamente más alianzas..."
+      items: [
+        {
+          name: "UNE",
+          description: "Universidad del Noreste - Mantenimiento general de instalaciones"
+        },
+        {
+          name: "Torre Ventura",
+          description: "Mantenimiento y remodelaciones en torre corporativa"
+        },
+        {
+          name: "Punto Sur",
+          description: "Centro comercial - Impermeabilización y pintura"
+        },
+        {
+          name: "Vibranta",
+          description: "Complejo residencial - Acabados y mantenimiento integral"
+        },
+        {
+          name: "Espacio Minerva",
+          description: "Centro de convenciones - Remodelaciones y herrería"
+        }
+      ],
     },
     contact: {
       title: "¿Necesitas un presupuesto?",
@@ -94,8 +114,28 @@ export const texts = {
     partnerships: {
       title: "Partnerships & Experience",
       subtitle: "I've had the honor to work with",
-      une: "UNE (Universidad del Noreste)",
-      more: "More partnerships coming soon..."
+      items: [
+        {
+          name: "UNE",
+          description: "Universidad del Noreste - General facility maintenance"
+        },
+        {
+          name: "Torre Ventura",
+          description: "Corporate tower - Maintenance and renovations"
+        },
+        {
+          name: "Punto Sur",
+          description: "Shopping center - Waterproofing and painting"
+        },
+        {
+          name: "Vibranta",
+          description: "Residential complex - Finishes and integral maintenance"
+        },
+        {
+          name: "Espacio Minerva",
+          description: "Convention center - Remodeling and ironwork"
+        }
+      ],
     },
     contact: {
       title: "Need a quote?",
