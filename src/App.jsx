@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react'
 import { texts } from './locales'
 import './App.css'
 
-// Importa tus imágenes de la galería (pon tus propias imágenes en /public/gallery/)
+// IMPORTANTE: Define la base path según tu repositorio
+const BASE_PATH = '/robertomedina'
+
 const galleryImages = [
-  { id: 1, src: "/gallery/obra1.jpg", title: "Remodelación de baño", category: "Remodelación" },
-  { id: 2, src: "/gallery/obra2.jpg", title: "Impermeabilización de azotea", category: "Impermeabilización" },
-  { id: 3, src: "/gallery/obra3.jpg", title: "Pintura exterior", category: "Pintura" },
-  { id: 4, src: "/gallery/obra4.jpg", title: "Instalación de piso", category: "Pisos" },
-  { id: 5, src: "/gallery/obra5.jpg", title: "Herrería - portón", category: "Herrería" },
-  { id: 6, src: "/gallery/obra6.jpg", title: "Fontanería completa", category: "Fontanería" },
-  { id: 7, src: "/gallery/obra7.jpg", title: "Tablaroca plafón", category: "Tablaroca" },
-  { id: 8, src: "/gallery/obra8.jpg", title: "Albañilería - muro", category: "Albañilería" },
+  { id: 1, src: `${BASE_PATH}/gallery/obra1.jpg`, title: "Remodelación de baño", category: "Remodelación" },
+  { id: 2, src: `${BASE_PATH}/gallery/obra2.jpg`, title: "Impermeabilización de azotea", category: "Impermeabilización" },
+  { id: 3, src: `${BASE_PATH}/gallery/obra3.jpg`, title: "Pintura exterior", category: "Pintura" },
+  { id: 4, src: `${BASE_PATH}/gallery/obra4.jpg`, title: "Instalación de piso", category: "Pisos" },
+  { id: 5, src: `${BASE_PATH}/gallery/obra5.jpg`, title: "Herrería - portón", category: "Herrería" },
+  { id: 6, src: `${BASE_PATH}/gallery/obra6.jpg`, title: "Fontanería completa", category: "Fontanería" },
+  { id: 7, src: `${BASE_PATH}/gallery/obra7.jpg`, title: "Tablaroca plafón", category: "Tablaroca" },
+  { id: 8, src: `${BASE_PATH}/gallery/obra8.jpg`, title: "Albañilería - muro", category: "Albañilería" },
 ]
 
 function App() {
@@ -19,22 +21,19 @@ function App() {
   const [selectedImage, setSelectedImage] = useState(null)
   const t = texts[language]
 
-  // Función para cambiar idioma y guardar en localStorage y URL
+  // Función para cambiar idioma
   const changeLanguage = (newLang) => {
     setLanguage(newLang)
-    
-    // Guardar en localStorage para persistencia
     localStorage.setItem('preferred_language', newLang)
     
-    // Actualizar URL con parámetro (opcional, para compartir)
+    // Actualizar URL con parámetro
     const url = new URL(window.location)
     url.searchParams.set('lang', newLang)
     window.history.pushState({}, '', url)
   }
 
-  // Detectar idioma al cargar (prioridad: URL > localStorage > default 'es')
+  // Detectar idioma al cargar
   useEffect(() => {
-    // 1. Revisar parámetro en URL
     const urlParams = new URLSearchParams(window.location.search)
     const langFromUrl = urlParams.get('lang')
     
@@ -44,18 +43,15 @@ function App() {
       return
     }
     
-    // 2. Revisar localStorage
     const savedLang = localStorage.getItem('preferred_language')
     if (savedLang === 'en' || savedLang === 'es') {
       setLanguage(savedLang)
-      // Opcional: actualizar URL para consistencia
       const url = new URL(window.location)
       url.searchParams.set('lang', savedLang)
       window.history.replaceState({}, '', url)
       return
     }
     
-    // 3. Default a español
     setLanguage('es')
     localStorage.setItem('preferred_language', 'es')
     const url = new URL(window.location)
@@ -63,7 +59,6 @@ function App() {
     window.history.replaceState({}, '', url)
   }, [])
 
-  // Actualizar el idioma del documento cuando cambie
   useEffect(() => {
     document.documentElement.lang = language
   }, [language])
@@ -76,7 +71,6 @@ function App() {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
-  // Scroll suave a secciones
   const handleNavClick = (e, sectionId) => {
     e.preventDefault()
     const element = document.getElementById(sectionId)
@@ -87,7 +81,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navbar con toggle bonito */}
+      {/* Navbar - el mismo código que tenías */}
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -96,7 +90,6 @@ function App() {
               <p className="text-xs text-gray-500 hidden sm:block">{t.title}</p>
             </div>
             
-            {/* Navegación desktop */}
             <div className="hidden md:flex items-center space-x-6">
               <a href="#services" onClick={(e) => handleNavClick(e, 'services')} className="text-gray-600 hover:text-blue-600 transition-colors">
                 {t.nav.services}
@@ -109,7 +102,6 @@ function App() {
               </a>
             </div>
             
-            {/* Toggle de idioma bonito */}
             <div className="flex items-center gap-2">
               <span className={`text-sm ${language === 'es' ? 'font-semibold text-gray-900' : 'text-gray-400'}`}>ES</span>
               <button

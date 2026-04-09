@@ -5,19 +5,10 @@
     <title>Roberto Medina - Mantenimiento General</title>
     <script>
       // Redirigir a index.html manteniendo la ruta
-      const pathSegments = location.pathname.split('/');
-      const lang = pathSegments[1];
-      
-      if (lang === 'en' || lang === 'es') {
-        // Mantener el idioma en la URL
-        sessionStorage.redirect = location.href;
-      } else {
-        // Redirigir a español por defecto
-        const newPath = '/es' + location.pathname;
-        sessionStorage.redirect = location.origin + newPath + location.search;
-      }
-      
-      location.replace('/');
+      const basePath = '/robertomedina';
+      const path = window.location.pathname.replace(basePath, '');
+      const newUrl = basePath + '/index.html' + path + window.location.search + window.location.hash;
+      window.location.replace(newUrl);
     </script>
   </head>
   <body></body>
