@@ -1,6 +1,28 @@
 import { useState, useEffect } from "react";
 import { texts } from "./locales";
 import "./App.css";
+import masonryImg from "./assets/services/masonry.jpg";
+import paintingImg from "./assets/services/painting.jpg";
+import plumbingImg from "./assets/services/plumbing.jpg";
+import waterproofingImg from "./assets/services/waterproofing.jpg";
+import ironworkImg from "./assets/services/ironwork.jpg";
+import remodelingImg from "./assets/services/remodeling.jpg";
+import electricityImg from "./assets/services/electricity.jpg";
+import drywallImg from "./assets/services/drywall.jpg";
+import flooringImg from "./assets/services/flooring.jpg";
+import uneImg from "./assets/partnerships/une.png";
+import torreVenturaImg from "./assets/partnerships/torre-ventura.jpeg";
+import puntoSurImg from "./assets/partnerships/punto-sur.jpeg";
+import vibrantaImg from "./assets/partnerships/vibranta.jpeg";
+import espacioMinervaImg from "./assets/partnerships/espacio-minerva.jpeg";
+import topImg from "./assets/gallery/top.jpg";
+import imperImg from "./assets/gallery/impermeabilizacion.jpg";
+import pintExt from "./assets/gallery/pint-ext.jpg";
+import pisoImg from "./assets/gallery/piso.jpg";
+import tablarocaImg from "./assets/gallery/tablaroca.jpg";
+import tablarocaImg2 from "./assets/gallery/tablaroca2.jpg";
+import tablarocaImg3 from "./assets/gallery/tablaroca3.jpg";
+import bañoImg from "./assets/gallery/baño.jpg";
 
 // IMPORTANTE: Define la base path según tu repositorio
 const BASE_PATH = "/robertomedina";
@@ -47,50 +69,50 @@ const LogoIcon = () => (
 const galleryImages = [
   {
     id: 1,
-    src: `${BASE_PATH}/gallery/obra1.jpg`,
-    title: "Remodelación de baño",
+    src: topImg,
+    title: "Techo",
     category: "Remodelación",
   },
   {
     id: 2,
-    src: `${BASE_PATH}/gallery/obra2.jpg`,
+    src: imperImg,
     title: "Impermeabilización de azotea",
     category: "Impermeabilización",
   },
   {
     id: 3,
-    src: `${BASE_PATH}/gallery/obra3.jpg`,
+    src: pintExt,
     title: "Pintura exterior",
     category: "Pintura",
   },
   {
     id: 4,
-    src: `${BASE_PATH}/gallery/obra4.jpg`,
+    src: pisoImg,
     title: "Instalación de piso",
     category: "Pisos",
   },
   {
     id: 5,
-    src: `${BASE_PATH}/gallery/obra5.jpg`,
-    title: "Herrería - portón",
-    category: "Herrería",
+    src: tablarocaImg,
+    title: "Tablaroca",
+    category: "Tablaroca",
   },
   {
     id: 6,
-    src: `${BASE_PATH}/gallery/obra6.jpg`,
-    title: "Fontanería completa",
-    category: "Fontanería",
+    src: tablarocaImg2,
+    title: "Pared de tablaroca",
+    category: "Tablaroca",
   },
   {
     id: 7,
-    src: `${BASE_PATH}/gallery/obra7.jpg`,
-    title: "Tablaroca plafón",
+    src: tablarocaImg3,
+    title: "Tablaroca ducto",
     category: "Tablaroca",
   },
   {
     id: 8,
-    src: `${BASE_PATH}/gallery/obra8.jpg`,
-    title: "Albañilería - muro",
+    src: bañoImg,
+    title: "remodelación de baño",
     category: "Albañilería",
   },
 ];
@@ -172,15 +194,23 @@ function App() {
   };
 
   const serviceImages = {
-    masonry: `${BASE_PATH}/services/masonry.jpg`,
-    painting: `${BASE_PATH}/services/painting.jpg`,
-    plumbing: `${BASE_PATH}/services/plumbing.jpg`,
-    waterproofing: `${BASE_PATH}/services/waterproofing.jpg`,
-    ironwork: `${BASE_PATH}/services/ironwork.jpg`,
-    remodeling: `${BASE_PATH}/services/remodeling.jpg`,
-    electricity: `${BASE_PATH}/services/electricity.jpg`,
-    drywall: `${BASE_PATH}/services/drywall.jpg`,
-    flooring: `${BASE_PATH}/services/flooring.jpg`,
+    masonry: masonryImg,
+    painting: paintingImg,
+    plumbing: plumbingImg,
+    waterproofing: waterproofingImg,
+    ironwork: ironworkImg,
+    remodeling: remodelingImg,
+    electricity: electricityImg,
+    drywall: drywallImg,
+    flooring: flooringImg,
+  };
+
+  const partnershipImages = {
+    une: uneImg,
+    torreVentura: torreVenturaImg,
+    puntoSur: puntoSurImg,
+    vibranta: vibrantaImg,
+    espacioMinerva: espacioMinervaImg,
   };
 
   return (
@@ -549,7 +579,7 @@ function App() {
         </div>
       )}
 
-      {/* Partnerships Section con diseño mejorado */}
+      {/* Partnerships Section - Versión con tarjetas uniformes */}
       <section id="partnerships" className="py-16 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -567,40 +597,46 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {t.partnerships.items.map((partner, idx) => (
               <div
                 key={idx}
-                className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group"
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 group"
               >
-                {/* Barra de color superior */}
-                <div className="h-2 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                {/* Contenedor de imagen cuadrado y centrado */}
+                <div className="relative w-full aspect-square bg-gray-50 flex items-center justify-center p-6">
+                  <img
+                    src={
+                      idx === 0
+                        ? partnershipImages.une
+                        : idx === 1
+                          ? partnershipImages.torreVentura
+                          : idx === 2
+                            ? partnershipImages.puntoSur
+                            : idx === 3
+                              ? partnershipImages.vibranta
+                              : partnershipImages.espacioMinerva
+                    }
+                    alt={partner.name}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.src =
+                        "https://via.placeholder.com/150x150?text=Logo";
+                      e.target.onerror = null;
+                    }}
+                  />
+                </div>
 
-                <div className="p-6">
-                  {/* Icono */}
-                  <div className="mb-4">
-                    <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                      <span className="text-2xl">
-                        {idx === 0 && "🏛️"}
-                        {idx === 1 && "🏢"}
-                        {idx === 2 && "🛍️"}
-                        {idx === 3 && "🏘️"}
-                        {idx === 4 && "🎪"}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Nombre */}
+                {/* Contenido */}
+                <div className="p-4 text-center border-t border-gray-100">
                   <h3
-                    className="text-xl font-bold text-gray-800 mb-2"
+                    className="font-semibold text-gray-800 mb-1 text-sm"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {partner.name}
                   </h3>
-
-                  {/* Descripción */}
                   <p
-                    className="text-gray-600 text-sm leading-relaxed"
+                    className="text-gray-500 text-xs line-clamp-2"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   >
                     {partner.description}
