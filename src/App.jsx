@@ -23,6 +23,7 @@ import tablarocaImg from "./assets/gallery/tablaroca.jpg";
 import tablarocaImg2 from "./assets/gallery/tablaroca2.jpg";
 import tablarocaImg3 from "./assets/gallery/tablaroca3.jpg";
 import banoImg from "./assets/gallery/bano.jpg";
+import profileImg from "./assets/profile.jpg";
 
 // IMPORTANTE: Define la base path según tu repositorio
 const BASE_PATH = "/robertomedina";
@@ -306,7 +307,7 @@ function App() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('${BASE_PATH}/hero-bg.jpg')`,
+              backgroundImage: profileImg,
               backgroundSize: "cover",
               backgroundPosition: "center",
               filter: "brightness(0.7)",
