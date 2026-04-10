@@ -22,7 +22,7 @@ import pisoImg from "./assets/gallery/piso.jpg";
 import tablarocaImg from "./assets/gallery/tablaroca.jpg";
 import tablarocaImg2 from "./assets/gallery/tablaroca2.jpg";
 import tablarocaImg3 from "./assets/gallery/tablaroca3.jpg";
-import bañoImg from "./assets/gallery/baño.jpg";
+import banoImg from "./assets/gallery/bano.jpg";
 
 // IMPORTANTE: Define la base path según tu repositorio
 const BASE_PATH = "/robertomedina";
@@ -111,8 +111,8 @@ const galleryImages = [
   },
   {
     id: 8,
-    src: bañoImg,
-    title: "remodelación de baño",
+    src: banoImg,
+    title: "Remodelación de baño",
     category: "Albañilería",
   },
 ];
