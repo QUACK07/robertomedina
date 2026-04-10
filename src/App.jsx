@@ -307,7 +307,6 @@ function App() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: profileImg,
               backgroundSize: "cover",
               backgroundPosition: "center",
               filter: "brightness(0.7)",
@@ -324,7 +323,7 @@ function App() {
             <div className="inline-block p-1 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 shadow-xl">
               <div className="bg-white rounded-full p-2">
                 <img
-                  src={`${BASE_PATH}/perfil.jpg`}
+                  src={profileImg}
                   alt="Roberto Medina"
                   className="w-32 h-32 rounded-full object-cover mx-auto"
                   onError={(e) => {
