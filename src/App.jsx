@@ -29,42 +29,17 @@ import profileImg from "./assets/profile.jpg";
 const BASE_PATH = "/robertomedina";
 
 // Logo SVG (puedes reemplazar con tu propio logo)
+// Importa la imagen del casco
+import hardHatImg from './assets/helmet.png'
+
 const LogoIcon = () => (
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="32" height="32" rx="8" fill="url(#gradient)" />
-    <path
-      d="M10 12L16 8L22 12V20L16 24L10 20V12Z"
-      stroke="white"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path
-      d="M16 12V16M16 16L19 14M16 16L13 14"
-      stroke="white"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-    <circle cx="16" cy="17" r="1" fill="white" />
-    <defs>
-      <linearGradient
-        id="gradient"
-        x1="0"
-        y1="0"
-        x2="32"
-        y2="32"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#3B82F6" />
-        <stop offset="1" stopColor="#1D4ED8" />
-      </linearGradient>
-    </defs>
-  </svg>
+  <img 
+    src={hardHatImg} 
+    alt="Hard Hat Logo" 
+    width="32" 
+    height="32" 
+    className="rounded-lg"
+  />
 );
 
 const galleryImages = [
