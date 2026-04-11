@@ -31,6 +31,7 @@ const BASE_PATH = "/robertomedina";
 // Logo SVG (puedes reemplazar con tu propio logo)
 // Importa la imagen del casco
 import hardHatImg from './assets/helmet.png'
+import Analytics from "./components/Analytics";
 
 const LogoIcon = () => (
   <img 
@@ -191,6 +192,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Analytics />
       {/* Navbar con logo y tipografía mejorada */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
